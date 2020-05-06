@@ -9,18 +9,38 @@
         <script src="scripts.js"></script>
     </head>
 
-
     <body>
-        <h1>Hello my app</h1>
+        <div class ="clock">
+            <div class ="hour">
+                <div class="hr" id="hr"></div> 
+            </div>
 
-        <ul>
-            <li>
-                <div class="my-paramter"> ask gender
-                <input type="radio" value ="true" >
-                    {{age}}
-                </input>
-                </div>
-            </li>
-        </ul>
+            <div class ="min">
+                <div class="mn" id="mn"></div> 
+            </div>
+
+            <div class ="sec">
+                <div class="se" id="se"></div> 
+            </div>
+        </div>
+<script type="text/javascript">
+const deg = 6;
+const hr = document.querySelector("#hr");
+const mn = document.querySelector("#mn");
+const se = document.querySelector("#se");
+
+setInterval(() => {
+    let day = new Date();
+    let hh = day.getHours() * 30;
+    let mm = day.getMinutes() * deg;
+    let ss = day.getSeconds() * deg;
+
+    hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+    mn.style.transform = `rotateZ(${mm}deg)`;
+    se.style.transform = `rotateZ(${ss}deg)`;
+
+});
+</script>
+
     </body>
 </html>
